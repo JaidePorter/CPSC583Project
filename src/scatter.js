@@ -193,6 +193,9 @@ function ScatterPlot() {
             let g = params.data.genre; 
             
             return 'Song: '+ trackName + '<br />' + yAxisLabel + ': ' + yAxisValue + '<br />' + selectedFeature + ': ' + xAxisValue  +'<br />' + 'Genre: ' + g;
+          },
+             textStyle: {
+            fontSize: '16px'
           }
         },
 
