@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import ReactECharts from 'echarts-for-react';
+import Bryce from './Bryce';
 
 function App() {
   const option = {
@@ -35,7 +36,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <ReactECharts option={option} />
+      <Bryce/>
     </div>
   );
 }
