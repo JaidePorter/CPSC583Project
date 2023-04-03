@@ -1,4 +1,5 @@
 import './App.css';
+import logo from './logo.svg';
 import ReactECharts from 'echarts-for-react';
 import Bryce from './Bryce';
 import React from "react";
