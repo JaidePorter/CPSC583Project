@@ -58,7 +58,7 @@ function Bryce() {
           <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" style={{width: "100%"}} onChange={(event) => setValue(parseFloat(event.target.value))}/>
           <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Energy</h3>
           <input id="typeinp" type="range" min="0" max="0.4" defaultValue="0.1" step="0.1" style={{width: "100%"}} onChange={(event) => setValue((parseFloat(value)+0.1).toFixed(2))}/>
-          <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Valience</h3>
+          <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Valence</h3>
           <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="1" style={{width: "100%"}} onChange={(event) => 
             parseInt(event.target.value) === 1 ? setValue((parseFloat(value)+0.1).toFixed(2)) : setValue((parseFloat(value)-0.1).toFixed(2))
           }/>
