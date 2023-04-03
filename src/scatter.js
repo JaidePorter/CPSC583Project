@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as echarts from 'echarts'; 
-import data from './Cleaneddata.json'
-
-
+import data from './Cleaneddata.json';
 
 function ScatterPlot() {
 
