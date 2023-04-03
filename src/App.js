@@ -3,14 +3,14 @@ import logo from './logo.svg';
 import ReactECharts from 'echarts-for-react';
 import Bryce from './Bryce';
 import React from "react";
-import Visualization3 from './Visualization3';
+import Visualization2 from './Visualization2';
 import ScatterPlot from './scatter';
 
 function App() {
   return (
     <div className="App">
       <ScatterPlot/>
-      <Visualization3/>
+      <Visualization2/>
       <Bryce/>
     </div>
   );
