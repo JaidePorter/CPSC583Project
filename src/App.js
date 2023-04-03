@@ -1,25 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import ReactECharts from 'echarts-for-react';
 import Bryce from './Bryce';
+import React from "react";
+import Visualization3 from './Visualization3';
 
 function App() {
-  const option = {
-    xAxis: {
-      type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series: [
-      {
-        data: [120, 200, 150, 80, 70, 110, 130],
-        type: 'bar'
-      }
-    ]
-  }; 
-
   return (
     <div className="App">
       <header className="App-header">
@@ -36,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Visualization3/>
       <Bryce/>
     </div>
   );
