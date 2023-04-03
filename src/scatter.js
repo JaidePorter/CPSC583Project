@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as echarts from 'echarts'; 
-import data from './Cleaneddata.json';
+import data from './data.json';
+import "./scatter.css"
 
 function ScatterPlot() {
 
@@ -124,7 +125,7 @@ function ScatterPlot() {
           // itemGap: 20
         // },
         xAxis: {
-          type: 'value',
+          type: 'value'
         //   name: selectedFeature,
         //   nameLocation: 'middle',
         //   nameTextStyle: {
@@ -138,18 +139,8 @@ function ScatterPlot() {
           nameGap: 50, // adjust this value as needed to center the label
           nameTextStyle: {
             fontSize: 30
-          },
-        },
-        title: [
-            {
-            text: 'Popularity vs Song Features by Genre',
-            left: 'center',
-            textStyle: {
-            fontWeight: 'bold',
-            fontSize: 30
           }
-            }
-        ],
+        },
 
         series: [
           {
@@ -209,14 +200,12 @@ function ScatterPlot() {
   
     return (
       <div>
-      <div style= {{display: 'grid',  gridTemplateColumns: '1fr auto', gridTemplateRows: "100%"}}>
-
-        <div ref={chartRef} style={{ width: '100%', height: '100%' }}></div>
-        
-        <div style={{ maxWidth: "100%", maxHeight: "100%", zIndex: 999,    backgroundColor: "#f7f7f7",
-          padding: "10px",
-          borderRadius: "5px",
-          boxShadow: "0px 0px 10px rgba(0,0,0,0.3)",}}>
+      <div style= {{display: 'grid',  gridTemplateColumns: 'auto auto', marginLeft: "1em"}}>
+        <div>
+          <h1>Comparison of Popularity Scores across Different Music Genres</h1>
+          <div ref={chartRef} style={{ width: '100%', height: '100%', backgroundColor: "white" }}></div>
+        </div>
+        <div className="filter-container">
              
              <h3>Select Genres:</h3>
              {Object.entries(genreColorMap).map(([genre, color]) => (

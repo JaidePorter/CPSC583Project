@@ -1,0 +1,18 @@
+#visualization2slider {
+    direction: rtl;
+  }
+  
+  #tooltip {
+    display: block;
+  }
+
+.visualization-container {
+  margin: 5em;
+  height: 800px;
+  margin-bottom: 0;
+}
+
+.vis2canvas {
+  height:600px !important;
+}
+  
