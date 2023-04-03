@@ -143,19 +143,23 @@ function Visualization2() {
     },
     emphasis: {
       lineStyle: {
-        width: 10
+        width: 10,
+        color: "#E27D60"
       }
     },
     series: [
       {
         name: "",
         type: "radar",
-        // data: [
-        //   {
-        //     value: [getAvg(danceabilityData), getAvg(acousticnessData), getAvg(energyData), getAvg(instrumentalnessData), getAvg(livenessData), getAvg(speechinessData), getAvg(valenceData)]
-        //   }
-        // ]
-        data: radarData
+        data: [
+          {
+            value: [getAvg(danceabilityData), getAvg(acousticnessData), getAvg(energyData), getAvg(instrumentalnessData), getAvg(livenessData), getAvg(speechinessData), getAvg(valenceData)]
+          }
+        ],
+        lineStyle: {color: '#E27D60', width: 5,},
+        
+        itemStyle: {color: '#E27D60'}
+        // data: radarData
       }
     ]
   }; 
@@ -168,7 +172,7 @@ function Visualization2() {
 
   return (
     <div className="visualization-container">
-      <h1>How do musical characteristics impact a song's popularity?"</h1>
+      <h1>How do musical features positively or negatively impact a song's popularity?</h1>
       <ReactECharts height="600px" className="vis2canvas" option={option} />
       <input type="range" id="visualization2slider" min="1" max="100" defaultValue="100" onChange={e => updateSlider(e)} />
       <output id="tooltip">Top 100%</output>
