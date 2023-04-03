@@ -142,7 +142,7 @@ function ScatterPlot() {
         },
         title: [
             {
-            text: 'Popularity Across Genres',
+            text: 'Comparison of Popularity Scores across Different Music Genres',
             left: 'center',
             textStyle: {
             fontWeight: 'bold',
