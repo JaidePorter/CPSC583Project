@@ -29,6 +29,7 @@ function Visualization3() {
     series: [{
       type: 'liquidFill',
       data: [value, value-0.1, value-0.3],
+      amplitude: value*30,
       shape: shape,
       outline: {
         show: false
