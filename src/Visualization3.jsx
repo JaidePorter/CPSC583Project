@@ -62,19 +62,19 @@ function Visualization3() {
         <ReactECharts option={option} style={{height: "80vh"}}/>
         <div>
           <h2 style={{margin: "0 auto"}}>Adjust Settings</h2>
-          <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Danceability</h3>
+          <h3 className="vis3-slider-label">Adjust Danceability</h3>
           <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" className="vis3-slider" onChange={(event) => setValue(parseFloat(event.target.value))}/>
-          <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Energy</h3>
+          <h3 className="vis3-slider-label">Adjust Energy</h3>
           <input id="typeinp" type="range" min="0" max="0.4" defaultValue="0.1" step="0.1" className="vis3-slider" onChange={(event) => setValue((parseFloat(value)+0.1).toFixed(2))}/>
-          <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Valence</h3>
+          <h3 className="vis3-slider-label">Adjust Valence</h3>
           <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="1" className="vis3-slider" onChange={(event) => 
             parseInt(event.target.value) === 1 ? setValue((parseFloat(value)+0.1).toFixed(2)) : setValue((parseFloat(value)-0.1).toFixed(2))
           }/>
-          <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Duration</h3>
+          <h3 className="vis3-slider-label">Adjust Duration</h3>
           <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" className="vis3-slider"/>
-          <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Liveness</h3>
+          <h3 className="vis3-slider-label">Adjust Liveness</h3>
           <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" className="vis3-slider" onChange={(event) => setValue(event.target.value)}/>
-          <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Speechiness</h3>
+          <h3 className="vis3-slider-label">Adjust Speechiness</h3>
           <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" className="vis3-slider" onChange={(event) => setValue((parseFloat(value)-0.2).toFixed(2))}/>
         </div>
       </div>

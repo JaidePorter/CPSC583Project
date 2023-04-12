@@ -34,3 +34,9 @@
 .vis3-slider {
   width: 100% !important;
 }
+
+.vis3-slider-label {
+  float: left;
+  font-weight: normal;
+  margin: 2rem 0 1rem 0;
+}
