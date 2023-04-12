@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import * as echarts from 'echarts';
 import 'echarts-liquidfill';
 import ReactECharts from 'echarts-for-react';
+import './Visualization3.css';
 
 function Visualization3() {
 
@@ -40,7 +41,7 @@ function Visualization3() {
         color: 'white'
       },
       label: {
-        formatter: "Popularity\n\n\n\n\n\n\n\n\n\n\n"+value,
+        formatter: "Song Popularity\n\n\n\n\n\n\n\n\n\n\nValue: "+value,
         fontSize: 40,
         color: "white"
       },
@@ -49,26 +50,32 @@ function Visualization3() {
   };
 
   return (
-    <div style={{backgroundColor: "#41B3A3", padding: "2rem", color: "white"}}>
-      <p style={{margin: "0 0 1.5rem 0", fontSize:"3rem"}}><b>Lets See How We Can Make Acapella Popular!</b></p>
-      <div style={{display: "grid", gridTemplateColumns: "60% 40%"}}>
+    <div className="vis3-container">
+      <div className="vis3-title-container">
+        <p className="vis3-title-text">Lets See How We Can Make</p>
+        <select className="vis3-title-select">
+          <option>Acapella</option>
+        </select>
+        <p className="vis3-title-text">Popular!</p>
+      </div>
+      <div className="vis3-content-container">
         <ReactECharts option={option} style={{height: "80vh"}}/>
         <div>
           <h2 style={{margin: "0 auto"}}>Adjust Settings</h2>
           <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Danceability</h3>
-          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" style={{width: "100%"}} onChange={(event) => setValue(parseFloat(event.target.value))}/>
+          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" className="vis3-slider" onChange={(event) => setValue(parseFloat(event.target.value))}/>
           <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Energy</h3>
-          <input id="typeinp" type="range" min="0" max="0.4" defaultValue="0.1" step="0.1" style={{width: "100%"}} onChange={(event) => setValue((parseFloat(value)+0.1).toFixed(2))}/>
+          <input id="typeinp" type="range" min="0" max="0.4" defaultValue="0.1" step="0.1" className="vis3-slider" onChange={(event) => setValue((parseFloat(value)+0.1).toFixed(2))}/>
           <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Valence</h3>
-          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="1" style={{width: "100%"}} onChange={(event) => 
+          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="1" className="vis3-slider" onChange={(event) => 
             parseInt(event.target.value) === 1 ? setValue((parseFloat(value)+0.1).toFixed(2)) : setValue((parseFloat(value)-0.1).toFixed(2))
           }/>
           <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Duration</h3>
-          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" style={{width: "100%"}}/>
+          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" className="vis3-slider"/>
           <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Liveness</h3>
-          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" style={{width: "100%"}} onChange={(event) => setValue(event.target.value)}/>
+          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" className="vis3-slider" onChange={(event) => setValue(event.target.value)}/>
           <h3 style={{float: "left", fontWeight: "normal", margin: "2rem 0 1rem 0"}}>Adjust Speechiness</h3>
-          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" style={{width: "100%"}} onChange={(event) => setValue((parseFloat(value)-0.2).toFixed(2))}/>
+          <input id="typeinp" type="range" min="0" max="1" defaultValue="0.5" step="0.1" className="vis3-slider" onChange={(event) => setValue((parseFloat(value)-0.2).toFixed(2))}/>
         </div>
       </div>
     </div>
