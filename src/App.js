@@ -1,7 +1,5 @@
 import './App.css';
-import logo from './logo.svg';
-import ReactECharts from 'echarts-for-react';
-import Bryce from './Bryce';
+import Visualization3 from './Visualization3';
 import React from "react";
 import Visualization2 from './Visualization2';
 import ScatterPlot from './scatter';
@@ -11,7 +9,7 @@ function App() {
     <div className="App">
       <ScatterPlot/>
       <Visualization2/>
-      <Bryce/>
+      <Visualization3/>
     </div>
   );
 }

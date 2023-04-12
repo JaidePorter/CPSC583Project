@@ -3,7 +3,7 @@ import * as echarts from 'echarts';
 import 'echarts-liquidfill';
 import ReactECharts from 'echarts-for-react';
 
-function Bryce() {
+function Visualization3() {
 
   let [value, setValue] = useState(0.2);
   let [chosenColor, setChosenColor] = useState(["#004D40", "#2E9987", "#00E5BF"]);
@@ -74,4 +74,4 @@ function Bryce() {
   );
 }
 
-export default Bryce;
+export default Visualization3;
