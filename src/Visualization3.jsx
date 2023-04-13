@@ -145,7 +145,7 @@ function Visualization3() {
       <div className="vis3-content-container">
         <ReactECharts option={option} style={{height: "80vh"}}/>
         <div>
-          <h2 style={{margin: "0 auto"}}>Adjust Settings</h2>
+          <h2 style={{margin: "0 auto 2rem auto"}}>Adjust Settings</h2>
           <h3 className="vis3-slider-label">Adjust Danceability</h3>
           <input 
             id="typeinp" type="range" className="vis3-slider" step="0.25"
@@ -154,6 +154,10 @@ function Visualization3() {
             defaultValue={chosenDanceability}
             onMouseUp={(event) => setChosenDanceability(parseFloat(event.target.value))}
           />
+          <div style={{display: "flex", justifyContent: "space-between"}}>
+            <h4>Lower</h4>
+            <h4 style={{float:"right"}}>Higher</h4>
+          </div>
           <h3 className="vis3-slider-label">Adjust Energy</h3>
           <input 
             id="typeinp" type="range" className="vis3-slider" step="0.25"
@@ -162,6 +166,10 @@ function Visualization3() {
             defaultValue={chosenEnergy}
             onMouseUp={(event) => setChosenEnergy(parseFloat(event.target.value))}
           />
+          <div style={{display: "flex", justifyContent: "space-between"}}>
+            <h4>Lower</h4>
+            <h4 style={{float:"right"}}>Higher</h4>
+          </div>
           <h3 className="vis3-slider-label">Adjust Valence</h3>
           <input 
             id="typeinp" type="range" className="vis3-slider" step="0.25"
@@ -170,6 +178,10 @@ function Visualization3() {
             defaultValue={chosenValence}
             onMouseUp={(event) => setChosenValence(parseFloat(event.target.value))}
           />
+          <div style={{display: "flex", justifyContent: "space-between"}}>
+            <h4>Lower</h4>
+            <h4 style={{float:"right"}}>Higher</h4>
+          </div>
           <h3 className="vis3-slider-label">Adjust Liveness</h3>
           <input 
             id="typeinp" type="range" className="vis3-slider" step="0.25"
@@ -178,6 +190,10 @@ function Visualization3() {
             defaultValue={chosenLiveness}
             onMouseUp={(event) => setChosenLiveness(parseFloat(event.target.value))}
           />
+          <div style={{display: "flex", justifyContent: "space-between"}}>
+            <h4>Lower</h4>
+            <h4 style={{float:"right"}}>Higher</h4>
+          </div>
           <h3 className="vis3-slider-label">Adjust Speechiness</h3>
           <input 
             id="typeinp" type="range" className="vis3-slider" step="0.25"
@@ -186,6 +202,10 @@ function Visualization3() {
             defaultValue={chosenSpeechiness}
             onMouseUp={(event) => setChosenSpeechiness(parseFloat(event.target.value))}
           />
+          <div style={{display: "flex", justifyContent: "space-between"}}>
+            <h4>Lower</h4>
+            <h4 style={{float:"right"}}>Higher</h4>
+          </div>
         </div>
       </div>
     </div>
