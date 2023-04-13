@@ -26,11 +26,11 @@ function Visualization3() {
   })
 
   data = data.map((dataPoint) => {
-    dataPoint.danceability = Math.round(10*dataPoint.danceability)/10;
-    dataPoint.energy = Math.round(10*dataPoint.energy)/10;
-    dataPoint.valence = Math.round(10*dataPoint.valence)/10;
-    dataPoint.liveness = Math.round(10*dataPoint.liveness)/10;
-    dataPoint.speechiness = Math.round(10*dataPoint.speechiness)/10;
+    dataPoint.danceability = Math.round(4*dataPoint.danceability)/4;
+    dataPoint.energy = Math.round(4*dataPoint.energy)/4;
+    dataPoint.valence = Math.round(4*dataPoint.valence)/4;
+    dataPoint.liveness = Math.round(4*dataPoint.liveness)/4;
+    dataPoint.speechiness = Math.round(4*dataPoint.speechiness)/4;
     return dataPoint;
   });
 
@@ -148,7 +148,7 @@ function Visualization3() {
           <h2 style={{margin: "0 auto"}}>Adjust Settings</h2>
           <h3 className="vis3-slider-label">Adjust Danceability</h3>
           <input 
-            id="typeinp" type="range" className="vis3-slider" step="0.1"
+            id="typeinp" type="range" className="vis3-slider" step="0.25"
             min="0"
             max="1"
             defaultValue={chosenDanceability}
@@ -156,7 +156,7 @@ function Visualization3() {
           />
           <h3 className="vis3-slider-label">Adjust Energy</h3>
           <input 
-            id="typeinp" type="range" className="vis3-slider" step="0.1"
+            id="typeinp" type="range" className="vis3-slider" step="0.25"
             min="0"
             max="1"
             defaultValue={chosenEnergy}
@@ -164,7 +164,7 @@ function Visualization3() {
           />
           <h3 className="vis3-slider-label">Adjust Valence</h3>
           <input 
-            id="typeinp" type="range" className="vis3-slider" step="0.1"
+            id="typeinp" type="range" className="vis3-slider" step="0.25"
             min="0"
             max="1"
             defaultValue={chosenValence}
@@ -172,7 +172,7 @@ function Visualization3() {
           />
           <h3 className="vis3-slider-label">Adjust Liveness</h3>
           <input 
-            id="typeinp" type="range" className="vis3-slider" step="0.1"
+            id="typeinp" type="range" className="vis3-slider" step="0.25"
             min="0"
             max="1"
             defaultValue={chosenLiveness}
@@ -180,7 +180,7 @@ function Visualization3() {
           />
           <h3 className="vis3-slider-label">Adjust Speechiness</h3>
           <input 
-            id="typeinp" type="range" className="vis3-slider" step="0.1"
+            id="typeinp" type="range" className="vis3-slider" step="0.25"
             min="0"
             max="1"
             defaultValue={chosenSpeechiness}
