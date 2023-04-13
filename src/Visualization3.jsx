@@ -19,19 +19,17 @@ function closest(needle, haystack) {
 
 function Visualization3() {
 
-  data = data.sort((a, b) => {
-    if(a.popularity < b.popularity) {
-      return -1;
-    }
-  })
-
-  data = data.map((dataPoint) => {
-    dataPoint.danceability = Math.round(4*dataPoint.danceability)/4;
-    dataPoint.energy = Math.round(4*dataPoint.energy)/4;
-    dataPoint.valence = Math.round(4*dataPoint.valence)/4;
-    dataPoint.liveness = Math.round(4*dataPoint.liveness)/4;
-    dataPoint.speechiness = Math.round(4*dataPoint.speechiness)/4;
-    return dataPoint;
+  let vis3Dataset = [];
+  data.forEach((dataPoint) => {
+    vis3Dataset.push({
+      popularity: dataPoint.popularity,
+      genre: dataPoint.genre,
+      danceability: Math.round(4*dataPoint.danceability)/4,
+      energy: Math.round(4*dataPoint.energy)/4,
+      valence: Math.round(4*dataPoint.valence)/4,
+      liveness: Math.round(4*dataPoint.liveness)/4,
+      speechiness: Math.round(4*dataPoint.speechiness)/4,
+    });
   });
 
   let [chosenGenre, setChosenGenre] = useState("Children's Music");
@@ -46,7 +44,7 @@ function Visualization3() {
   let [shape, setShape] = useState("");
 
   useEffect(() => {
-    let genreFiltered = data.filter((dataPoint) => dataPoint.genre === chosenGenre);
+    let genreFiltered = vis3Dataset.filter((dataPoint) => dataPoint.genre === chosenGenre);
 
     let targetDanceability = closest(chosenDanceability, genreFiltered.map(dataPoint => dataPoint.danceability));
     let danceabilityFiltered = genreFiltered.filter((dataPoint) => dataPoint.danceability === targetDanceability);
