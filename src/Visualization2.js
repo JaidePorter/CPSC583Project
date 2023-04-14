@@ -6,6 +6,7 @@ import data from './data.json';
 function Visualization2() {
   
   const [popularity, setPopularity] = useState(100);
+  const [dataDisplayed, setData] = useState([]);
 
   data = data.sort((a, b) => {
     if(a.popularity < b.popularity) {
@@ -23,6 +24,7 @@ function Visualization2() {
   let valenceData = [];
   let genreData = {};
   let genreList = [];
+  let currentLine = "all";
 
   for(var i = 0 ; i < (popularity * 50000 / 100); i++) {
     let index = 50000 - i - 1;
@@ -58,56 +60,23 @@ function Visualization2() {
     }
   }
 
-  let radarData = [];
   for(var i in genreData) {
      for(var j = 0; j < 7; j++) {
       genreData[i].data[j] /= genreData[i].count;
      }
-     radarData.push({
-      "name": genreData[i],
-      "value": genreData[i].data
-     })
   }
-
-  console.log(genreData)
-  const genreColorMap = {
-    "Children's Music": "#e41a1c",
-    "Soundtrack": "#377eb8",
-    "Comedy": "#4daf4a",
-    "Folk": "#984ea3",
-    "Electronic": "#ff7f00",
-    "Indie": "#ffff29",
-    "Hip-Hop": "#a65628",
-    "Pop": "#f781bf",
-    "Rock": "#999999",
-    "Rap": "#dede00",
-    "Jazz": "#d0d0d0",
-    "Soul": "#696969",
-    "Classical": "#ff7f50",
-    "World": "#b0e0e6",
-    "Alternative": "#8b4513",
-    "R&B": "#00008b",
-    "Blues": "#e6beff",
-    "Anime": "#808000",
-    "Reggae": "#ffd700",
-    "Reggaeton": "#7f007f",
-    "Ska": "#000000",
-    "Dance": "#6b8e23",
-    "Country": "#ffa07a",
-    "Opera": "#ffb6c1",
-    "Movie": "#2f4f4f",
-    "A Capella": "#c71585"
-  }; 
 
   function getAvg(data) {
     const total = data.reduce((acc, c) => acc + c, 0);
     return total / data.length;
   }
 
+  let allSongs = [getAvg(danceabilityData), getAvg(acousticnessData), getAvg(energyData), getAvg(instrumentalnessData), getAvg(livenessData), getAvg(speechinessData), getAvg(valenceData)];
+
+  if(dataDisplayed.length == 0) {
+    updateLine(currentLine);
+  }
   const option = {
-    legend: {
-      // data: genreList
-    },
     radar: {
       indicator: [
         { name: "Danceability", max: 1 },
@@ -153,26 +122,65 @@ function Visualization2() {
         type: "radar",
         data: [
           {
-            value: [getAvg(danceabilityData), getAvg(acousticnessData), getAvg(energyData), getAvg(instrumentalnessData), getAvg(livenessData), getAvg(speechinessData), getAvg(valenceData)]
+            value: dataDisplayed
           }
         ],
         lineStyle: {color: '#E27D60', width: 5,},
-        
         itemStyle: {color: '#E27D60'}
-        // data: radarData
       }
     ]
-  }; 
+  };
+
+  function updateLine(e) {
+    if(e == "all") {
+      setData(allSongs)
+    }
+    else {
+      setData(genreData[e].data)
+    }
+    currentLine = e;
+  }
 
   function updateSlider(e) {
     setPopularity(e.target.value)
     let t = document.getElementById("tooltip");
     t.innerHTML = "Top " + e.target.value + "%";
+    updateLine(currentLine);
   }
 
   return (
     <div className="visualization-container">
       <h1>How do musical features positively or negatively impact a song's popularity?</h1>
+      <label>Select Genre: </label>
+      <select onChange={e => updateLine(e.target.value)}>
+        <option value="all">All Songs</option>
+        <option value="A Capella">Acapella</option>
+        <option value="Alternative">Alternative</option>
+        <option value="Anime">Anime</option>
+        <option value="Blues">Blues</option>
+        <option value="Children's Music">Children's Music</option>
+        <option value="Classical">Classical</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Country">Country</option>
+        <option value="Dance">Dance</option>
+        <option value="Electronic">Electronic</option>
+        <option value="Folk">Folk</option>
+        <option value="Hip-Hop">Hip-Hop</option>
+        <option value="Indie">Indie</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Movie">Movie</option>
+        <option value="Opera">Opera</option>
+        <option value="Pop">Pop</option>
+        <option value="R&B">R&B</option>
+        <option value="Rap">Rap</option>
+        <option value="Reggae">Reggae</option>
+        <option value="Reggaeton">Reggaeton</option>
+        <option value="Rock">Rock</option>
+        <option value="Ska">Ska</option>
+        <option value="Soul">Soul</option>
+        <option value="Soundtrack">Soundtrack</option>
+        <option value="World">World</option>
+      </select>
       <ReactECharts height="600px" className="vis2canvas" option={option} />
       <input type="range" id="visualization2slider" min="1" max="100" defaultValue="100" onChange={e => updateSlider(e)} />
       <output id="tooltip">Top 100%</output>
