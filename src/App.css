@@ -43,6 +43,21 @@ body {
   font-family: 'Manrope';
 }
 
+::-webkit-scrollbar {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+  background: #41b3a3;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 0.15rem solid #41b3a3;
+}
+
 /* The slider itself */
 input[type="range"] {
   -webkit-appearance: none;  /* Override default CSS styles */

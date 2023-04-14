@@ -1,13 +1,13 @@
 import './App.css';
-import Visualization3 from './Visualization3';
 import React from "react";
+import Visualization1 from './Visualization1';
 import Visualization2 from './Visualization2';
-import ScatterPlot from './scatter';
+import Visualization3 from './Visualization3';
 
 function App() {
   return (
     <div className="App">
-      <ScatterPlot/>
+      <Visualization1/>
       <Visualization2/>
       <Visualization3/>
     </div>
