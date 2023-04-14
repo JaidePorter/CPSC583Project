@@ -1,7 +1,29 @@
 .filter-container {
+    height: 100%;
     background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 1em;
+    border-radius: 5px 0 0 5px;
     color: black;
+    display: grid;
+    grid-template-rows: fit-content(100%) fit-content(100%) auto;
+}
+
+.filter-sensors-container {
+    overflow-y: scroll;
+    height: 780px;
+}
+
+
+.filter-sensors-container::-webkit-scrollbar {
+    height: 0.75rem;
+    width: 0.75rem;
+  }
+  
+.filter-sensors-container::-webkit-scrollbar-track, .filter-sensors-container::-webkit-scrollbar-corner {
+    background: white;
+}
+
+.filter-sensors-container::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 0.5rem;
+    border: 0.15rem solid white;
 }

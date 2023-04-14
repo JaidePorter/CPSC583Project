@@ -116,12 +116,13 @@ function ScatterPlot() {
           // itemGap: 20
         // },
         xAxis: {
-          type: 'value'
-        //   name: selectedFeature,
-        //   nameLocation: 'middle',
-        //   nameTextStyle: {
-        //     fontSize: 18
-        //   },
+          type: 'value',
+          name: selectedFeature,
+          nameLocation: 'middle',
+          nameGap: 30, // adjust this value as needed to center the label
+          nameTextStyle: {
+            fontSize: 30
+          },
         },
         yAxis: {
           type: 'value',
@@ -186,6 +187,7 @@ function ScatterPlot() {
       
     }, [selectedFeature, selectedGenres] );
   
+    /*
     return (
       <div>
         <div style= {{display: 'grid',  gridTemplateColumns: 'auto auto', marginLeft: "1em"}}>
@@ -228,6 +230,52 @@ function ScatterPlot() {
             <option value="loudness">Loudness</option>
             <option value="speechiness">Speechiness</option>
           </select>
+        </div>
+      </div>
+    );
+    */
+    return (
+      <div style={{height: "100vh", width: "100%", display: "grid", gridTemplateColumns: "79% 19%", gap: "2%"}}>
+        <div style={{height: "100%", width: "100%", display: "grid", gridTemplateRows: "fit-content(100%) auto fit-content(100%)", paddingLeft: "1%"}}>
+          <h1>Comparison of Popularity Scores across Different Music Genres</h1>
+          <div ref={chartRef} style={{width: '100%', height: '100%', backgroundColor: "white"}}/>
+          <div style={{textAlign: "center", marginTop: "2rem", marginBottom: "2rem", fontSize: '30px' }}>
+            Select feature: 
+            <select value={selectedFeature} onChange={(e) => setSelectedFeature(e.target.value)} style={{fontSize: "30px" , textAlign: "center", background: "#E8A87C", color: "white", borderRadius: "10px", fontSize: "2rem", padding: "0.25rem"}}>
+              <option value="valence">Valence</option>
+              <option value="acousticness">Acousticness</option>
+              <option value="danceability">Danceability</option>
+              <option value="energy">Energy</option>
+              <option value="instrumentalness">Instrumentalness</option>
+              <option value="liveness">Loudness</option>
+              <option value="tempo">Tempo</option>
+              <option value="loudness">Loudness</option>
+              <option value="speechiness">Speechiness</option>
+            </select>
+          </div>
+        </div>
+        <div className="filter-container">
+          <h3>Select Genres:</h3>
+          <div className="filter-sensors-container">
+            {Object.entries(genreColorMap).map(([genre, color]) => (
+              <label key={genre} style={{display: "block", backgroundColor: color, color: color === "#000000" || color === "#00008b" ? "white" : "black", maxWidth: "100%", fontWeight: "bold", padding: "10px", borderRadius: "5px", marginBottom: "5px", marginLeft: "10px", marginRight: "10px", display: "flex", alignItems: "center"}}>
+              <input
+                  type="checkbox"
+                  value ={genre}
+                  checked={selectedGenres[genre]}
+                  onChange={() => {
+                    setSelectedGenres({
+                      ...selectedGenres,
+                      [genre]: !selectedGenres[genre]
+                    });
+                  }}
+                  style={{ marginRight: "10px", width: "20px", height: "20px", backgroundColor: color, borderRadius: "5px", border: "none", outline: "none", cursor: "pointer"}}
+              />
+              {genre}
+              </label>
+            ))}
+          </div>
+          <h3 style={{color: "white"}}>Select Genres:</h3>
         </div>
       </div>
     );
