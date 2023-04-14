@@ -35,8 +35,7 @@ function ScatterPlot() {
           "A Capella": false,
        
       });
-
-  
+ 
     const chartRef = useRef(0); // 
 
     const genreColorMap = {
@@ -67,35 +66,28 @@ function ScatterPlot() {
         "Movie": "#2f4f4f",
         "A Capella": "#c71585"
       }; 
-    
-
-
-
   
     useEffect(() => {
+      const chart = echarts.init(chartRef.current);
 
-    
-    const chart = echarts.init(chartRef.current);
-
-    // featurs array
-    let trackNames = data.map((d) => d.track_name);
-    let popularity = data.map((d) => d.popularity);
-    let valence = data.map((d) => d.valence);
-    let acousticness = data.map((d) => d.acousticness);
-    let danceability = data.map((d) => d.danceability);
-    let energy = data.map((d) => d.energy);
-    let instrumentalness = data.map((d) => d.instrumentalness);
-    let liveness = data.map((d) => d.liveness);
-    let tempo = data.map((d) => d.tempo);
-    let loudness = data.map((d) => d.loudness);
-    let speechiness = data.map((d) => d.speechiness);
-    // let duration_ms_normalized = data.map((d) => d.duration_ms_normalized);
-    let genre = data.map((d) => d.genre);
-    // const filteredData = data.filter(d => selectedGenres.includes(genre));
+      // featurs array
+      let trackNames = data.map((d) => d.track_name);
+      let popularity = data.map((d) => d.popularity);
+      let valence = data.map((d) => d.valence);
+      let acousticness = data.map((d) => d.acousticness);
+      let danceability = data.map((d) => d.danceability);
+      let energy = data.map((d) => d.energy);
+      let instrumentalness = data.map((d) => d.instrumentalness);
+      let liveness = data.map((d) => d.liveness);
+      let tempo = data.map((d) => d.tempo);
+      let loudness = data.map((d) => d.loudness);
+      let speechiness = data.map((d) => d.speechiness);
+      // let duration_ms_normalized = data.map((d) => d.duration_ms_normalized);
+      let genre = data.map((d) => d.genre);
+      // const filteredData = data.filter(d => selectedGenres.includes(genre));
       // Create array for selected feature
 
       let seriesData = [];
-      
 
       const features = {
         valence: valence,
@@ -108,7 +100,6 @@ function ScatterPlot() {
         loudness: loudness,
         speechiness: speechiness,
         genre: genre,
-        
       };
 
       const option = {
@@ -141,7 +132,6 @@ function ScatterPlot() {
             fontSize: 30
           }
         },
-
         series: [
           {
             type: 'scatter',
@@ -187,8 +177,6 @@ function ScatterPlot() {
             fontSize: '16px'
           }
         },
-
-        
       };
       chart.setOption(option);
   
@@ -200,37 +188,33 @@ function ScatterPlot() {
   
     return (
       <div>
-      <div style= {{display: 'grid',  gridTemplateColumns: 'auto auto', marginLeft: "1em"}}>
-        <div>
-          <h1>Comparison of Popularity Scores across Different Music Genres</h1>
-          <div ref={chartRef} style={{ width: '100%', height: '100%', backgroundColor: "white" }}></div>
+        <div style= {{display: 'grid',  gridTemplateColumns: 'auto auto', marginLeft: "1em"}}>
+          <div>
+            <h1>Comparison of Popularity Scores across Different Music Genres</h1>
+            <div ref={chartRef} style={{ width: '100%', height: '100%', backgroundColor: "white" }}></div>
+          </div>
+          <div className="filter-container">   
+            <h3>Select Genres:</h3>
+            {Object.entries(genreColorMap).map(([genre, color]) => (
+              <label key={genre} style={{display: "block", backgroundColor: color, color: color === "#000000" || color === "#00008b" ? "white" : "black", maxWidth: "100%", fontWeight: "bold", padding: "10px", borderRadius: "5px", marginBottom: "5px", display: "flex", alignItems: "center"}}>
+              <input
+                  type="checkbox"
+                  value ={genre}
+                  checked={selectedGenres[genre]}
+                  onChange={() => {
+                    setSelectedGenres({
+                      ...selectedGenres,
+                      [genre]: !selectedGenres[genre]
+                    });
+                  }}
+                  style={{ marginRight: "10px", width: "20px", height: "20px", backgroundColor: color, borderRadius: "5px", border: "none", outline: "none", cursor: "pointer"}}
+              />
+            {genre}
+              </label>
+            ))}
+          </div>
         </div>
-        <div className="filter-container">
-             
-             <h3>Select Genres:</h3>
-             {Object.entries(genreColorMap).map(([genre, color]) => (
-                  
-                 <label key={genre} style={{display: "block", backgroundColor: color, color: color === "#000000" || color === "#00008b" ? "white" : "black", maxWidth: "100%", fontWeight: "bold", padding: "10px", borderRadius: "5px", marginBottom: "5px", display: "flex", alignItems: "center"}}>
-                 <input
-                     type="checkbox"
-                     value ={genre}
-                     checked={selectedGenres[genre]}
-                     onChange={() => {
-                       setSelectedGenres({
-                         ...selectedGenres,
-                         [genre]: !selectedGenres[genre]
-                       });
-                     }}
-                     style={{ marginRight: "10px", width: "20px", height: "20px", backgroundColor: color, borderRadius: "5px", border: "none", outline: "none", cursor: "pointer"}}
-                 />
-                {genre}
-                 </label>
-                 
-             ))}
-             
-             </div>
-        </div>
-        
+
         <div style={{textAlign: "center"  , marginBottom: '2%', fontSize: '30px' }}>
           Select feature: 
           <select value={selectedFeature} onChange={(e) => setSelectedFeature(e.target.value)} style={{ fontSize: "30px" , textAlign: "center", zIndex: 999}}>
@@ -245,13 +229,7 @@ function ScatterPlot() {
             <option value="speechiness">Speechiness</option>
           </select>
         </div>
-       
       </div>
-      
-      
-
-
-
     );
   }
   
