@@ -98,9 +98,10 @@ function Visualization3() {
         color: 'white'
       },
       label: {
-        formatter: "Song Popularity\n\n\n\n\n\n\n\n\n\n\nValue: "+resultingPopularity,
-        fontSize: 40,
-        color: "white"
+        formatter: "Song Popularity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nValue: "+resultingPopularity,
+        fontSize: 30,
+        color: "white",
+        fontFamily: "Fredericka the Great"
       },
       color: [...chosenColor],
     }]
@@ -109,7 +110,7 @@ function Visualization3() {
   return (
     <div className="vis3-container">
       <div className="vis3-title-container">
-        <p className="vis3-title-text">Lets See How We Can Make</p>
+        <h1>Lets focus further and see how can we make</h1>
         <select className="vis3-title-select" onChange={(e) => setChosenGenre(e.target.value)}>
           <option value="Children's Music">Children's Music</option>
           <option value="Soundtrack">Soundtrack</option>
@@ -138,7 +139,12 @@ function Visualization3() {
           <option value="Movie">Movie</option>
           <option value="A Capella">A Capella</option>
         </select>
-        <p className="vis3-title-text">Popular!</p>
+        <h1>popular!</h1>
+      </div>
+      <div style={{backgroundColor: "white", color: "black", padding: "0.25rem 1rem", width: "fit-content", margin: "auto", borderRadius: "20px", marginBottom:"2rem"}}>
+        <p>On the <b>right</b>, you can adjust what type of song you are thinking of creating, by editing the song's danceability, energy, valence, liveness and speechiness (but don't forget to change the genre in the select just above!).</p>
+        <p>On the <b>left</b>, you can see how popular we think your song will become based off our dataset.</p>
+        <p>How about this as a fun little game - Can you get your song to the highest popularity value of 1?</p>
       </div>
       <div className="vis3-content-container">
         <ReactECharts option={option} style={{height: "80vh"}}/>
@@ -204,6 +210,19 @@ function Visualization3() {
             <h4>Lower</h4>
             <h4 style={{float:"right"}}>Higher</h4>
           </div>
+        </div>
+      </div>
+      <div style={{backgroundColor: "white", color: "black", padding: "0.25rem 1rem", width: "fit-content", margin: "auto", borderRadius: "20px", marginBottom:"1rem"}}>
+        <p>To explain, the above filled circle chart helps us answer the question <b>"Does a certain combination of factors contribute more to the popularity of a song?"</b></p>
+        <p>The higher the popularity value gets, the more the visualization fills up and the happier the face gets as well as the faster the animation gets- reflecting the general public's acceptance and excitement of the song.</p>
+        <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}>
+          <p>From the results above, it seems that the combination you've chosen above results in&nbsp;</p>
+          {
+            resultingPopularity < 0.25 ? <h2><u>A HORRIBLE SONG! CHANGE SOMETHING IMMEDIATELY!</u></h2> :
+              (resultingPopularity < 0.5 ? <h2><u>an okay song.</u></h2> : 
+                resultingPopularity < 0.75 ? <h2><u>a pretty good song!</u></h2> : <h2><u>A SPECTACULAR SONG! WELL DONE!</u></h2>
+              )
+          }
         </div>
       </div>
     </div>
