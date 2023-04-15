@@ -16,7 +16,7 @@
   height:600px !important;
 }
   
-.grid-container {
+.v2-grid-container {
   display: grid;
   grid-template-columns: 60% 40%;
   grid-gap: 3em;

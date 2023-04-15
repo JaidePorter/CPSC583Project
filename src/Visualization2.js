@@ -192,7 +192,7 @@ function Visualization2() {
   return (
     <div className="visualization-container">
       <h1>How do musical features positively or negatively impact a song's popularity?</h1>
-      <div className="grid-container">
+      <div className="v2-grid-container">
         <div>
           <label>Select Genre: </label>
           <select onChange={e => updateLine(e.target.value)}>
