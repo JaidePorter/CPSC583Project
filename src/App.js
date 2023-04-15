@@ -1,17 +1,15 @@
 import './App.css';
-import logo from './logo.svg';
-import ReactECharts from 'echarts-for-react';
-import Bryce from './Bryce';
 import React from "react";
+import Visualization1 from './Visualization1';
 import Visualization2 from './Visualization2';
-import ScatterPlot from './scatter';
+import Visualization3 from './Visualization3';
 
 function App() {
   return (
     <div className="App">
-      <ScatterPlot/>
+      <Visualization1/>
       <Visualization2/>
-      <Bryce/>
+      <Visualization3/>
     </div>
   );
 }
