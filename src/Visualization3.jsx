@@ -98,9 +98,10 @@ function Visualization3() {
         color: 'white'
       },
       label: {
-        formatter: "Song Popularity\n\n\n\n\n\n\n\n\n\n\nValue: "+resultingPopularity,
-        fontSize: 40,
-        color: "white"
+        formatter: "Song Popularity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nValue: "+resultingPopularity,
+        fontSize: 30,
+        color: "white",
+        fontFamily: "Fredericka the Great"
       },
       color: [...chosenColor],
     }]
@@ -109,7 +110,7 @@ function Visualization3() {
   return (
     <div className="vis3-container">
       <div className="vis3-title-container">
-        <p className="vis3-title-text">Lets See How We Can Make</p>
+        <h1>So, Lets See How We Can Make</h1>
         <select className="vis3-title-select" onChange={(e) => setChosenGenre(e.target.value)}>
           <option value="Children's Music">Children's Music</option>
           <option value="Soundtrack">Soundtrack</option>
@@ -138,7 +139,7 @@ function Visualization3() {
           <option value="Movie">Movie</option>
           <option value="A Capella">A Capella</option>
         </select>
-        <p className="vis3-title-text">Popular!</p>
+        <h1>Popular!</h1>
       </div>
       <div className="vis3-content-container">
         <ReactECharts option={option} style={{height: "80vh"}}/>

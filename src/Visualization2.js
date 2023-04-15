@@ -138,7 +138,8 @@ function Visualization2() {
       splitNumber: 4,
       axisName: {
         formatter: '【{value}】',
-        color: 'white'
+        color: 'white',
+        fontFamily: "Fredericka the Great"
       },
       splitArea: {
         areaStyle: {
@@ -195,7 +196,7 @@ function Visualization2() {
       <div className="v2-grid-container">
         <div>
           <label>Select Genre: </label>
-          <select onChange={e => updateLine(e.target.value)}>
+          <select onChange={e => updateLine(e.target.value)} style={{fontFamily: "Fredericka the Great"}}>
             <option value="all">All Songs</option>
             <option value="A Capella">Acapella</option>
             <option value="Alternative">Alternative</option>
@@ -226,7 +227,7 @@ function Visualization2() {
           </select>
           <ReactECharts height="600px" className="vis2canvas" option={option} />
           <input type="range" id="visualization2slider" min="1" max="100" defaultValue="100" onChange={e => updateSlider(e)} />
-          <output id="tooltip">Top 100%</output>
+          <output id="tooltip" style={{marginTop: "0.5rem"}}>Top 100%</output>
           <h3>Popularity</h3>
         </div>
         <div className="text-container">
