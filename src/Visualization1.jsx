@@ -99,7 +99,7 @@ function ScatterPlot() {
         nameGap: 50, // adjust this value as needed to center the label
         nameTextStyle: {
           fontSize: 30,
-          fontFamily: "Fredericka the Great"
+          fontFamily: 'Enriqueta'
         },
       },
       series: [
