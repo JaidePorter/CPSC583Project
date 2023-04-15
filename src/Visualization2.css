@@ -16,3 +16,18 @@
   height:600px !important;
 }
   
+.v2-grid-container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 3em;
+}
+
+.text-container {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  padding: 21px 40px;
+  width: fit-content;
+  height: fit-content;
+  text-align: left;
+}
