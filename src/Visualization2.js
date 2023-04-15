@@ -196,7 +196,7 @@ function Visualization2() {
       <div className="v2-grid-container">
         <div>
           <label>Select Genre: </label>
-          <select onChange={e => updateLine(e.target.value)} style={{fontFamily: "Fredericka the Great"}}>
+          <select onChange={e => updateLine(e.target.value)} className="vis2-select">
             <option value="all">All Songs</option>
             <option value="A Capella">Acapella</option>
             <option value="Alternative">Alternative</option>

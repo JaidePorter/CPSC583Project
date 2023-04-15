@@ -98,8 +98,9 @@ function ScatterPlot() {
         nameLocation: 'middle',
         nameGap: 50, // adjust this value as needed to center the label
         nameTextStyle: {
-          fontSize: 30
-        }
+          fontSize: 30,
+          fontFamily: "Fredericka the Great"
+        },
       },
       series: [
         {
@@ -205,7 +206,7 @@ function ScatterPlot() {
         </div>
         <div style={{textAlign: "center"  , marginBottom: '2%', fontSize: '30px' }}>
           Select feature: 
-          <select value={selectedFeature} onChange={(e) => setSelectedFeature(e.target.value)} style={{ fontSize: "30px" , textAlign: "center", zIndex: 999}}>
+          <select value={selectedFeature} onChange={(e) => setSelectedFeature(e.target.value)} className="vis1-select">
             <option value="valence">Valence </option>
             <option value="acousticness">Acousticness</option>
             <option value="danceability">Danceability</option>
