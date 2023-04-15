@@ -110,7 +110,7 @@ function Visualization3() {
   return (
     <div className="vis3-container">
       <div className="vis3-title-container">
-        <h1>So, Lets See How We Can Make</h1>
+        <h1>Lets focus further and see how can we make</h1>
         <select className="vis3-title-select" onChange={(e) => setChosenGenre(e.target.value)}>
           <option value="Children's Music">Children's Music</option>
           <option value="Soundtrack">Soundtrack</option>
@@ -139,9 +139,9 @@ function Visualization3() {
           <option value="Movie">Movie</option>
           <option value="A Capella">A Capella</option>
         </select>
-        <h1>Popular!</h1>
+        <h1>popular!</h1>
       </div>
-      <div style={{backgroundColor: "white", color: "black", padding: "0.25rem 1rem", width: "fit-content", margin: "auto", borderRadius: "20px", marginBottom:"1rem"}}>
+      <div style={{backgroundColor: "white", color: "black", padding: "0.25rem 1rem", width: "fit-content", margin: "auto", borderRadius: "20px", marginBottom:"2rem"}}>
         <p>On the <b>right</b>, you can adjust what type of song you are thinking of creating, by editing the song's danceability, energy, valence, liveness and speechiness (but don't forget to change the genre in the select just above!).</p>
         <p>On the <b>left</b>, you can see how popular we think your song will become based off our dataset.</p>
         <p>How about this as a fun little game - Can you get your song to the highest popularity value of 1?</p>
@@ -219,8 +219,8 @@ function Visualization3() {
           <p>From the results above, it seems that the combination you've chosen above results in&nbsp;</p>
           {
             resultingPopularity < 0.25 ? <h2><u>A HORRIBLE SONG! CHANGE SOMETHING IMMEDIATELY!</u></h2> :
-              (resultingPopularity < 0.5 ? <h2><u>an okay song...</u></h2> : 
-                resultingPopularity < 0.75 ? <h2><u>a pretty good song.</u></h2> : <h2><u>A REALLY GOOD SONG! WELL DONE!</u></h2>
+              (resultingPopularity < 0.5 ? <h2><u>an okay song.</u></h2> : 
+                resultingPopularity < 0.75 ? <h2><u>a pretty good song!</u></h2> : <h2><u>A SPECTACULAR SONG! WELL DONE!</u></h2>
               )
           }
         </div>

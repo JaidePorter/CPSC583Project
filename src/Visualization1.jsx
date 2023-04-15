@@ -169,6 +169,11 @@ function ScatterPlot() {
   
   return (
     <div>
+      <div style={{backgroundColor: "white", color: "black", padding: "0.25rem 1rem", width: "fit-content", margin: "0 2rem", borderRadius: "20px", marginBottom:"1rem"}}>
+        <p>Imagine yourself sitting in your room, with your favorite music playing in the background. You wonder, what makes a song popular?  Is it the energy, tempo, or valence of the song that plays the most important role in its popularity? Our scatter plot visualization can help you answer that question by comparing the popularity of songs across various music genres. With the Y-axis representing the popularity measure and the X-axis displaying collection of features like valence, danceability, tempo, energy, loudness, acousticness, and speechiness to choose from, you can easily analyze and compare songs' different aspects.</p>
+        <p>Each genre is assigned a unique color, and with a checkbox-style feature, you can select up to five genres to compare with each other. By aligning with human cognitive limitations, our visualization makes it easier for you to understand and remember the information being presented.</p>
+        <p>As you explore the scatter plot, you can zoom in on any point to take a closer look at each song. Each data point represents a song, and you can quickly determine its popularity based on its position on the Y-axis. With this visualization, you can observe general trends in popularity across the different genres of music of and understand what makes a song popular, and use this knowledge to create better playlists or even create your own music. So, come and immerse yourself in the world of music, where our scatter plot visualization awaits you.</p>
+      </div>
       <div class="grid-container">
         <div>
           <h1>Comparison of Popularity Scores across Different Music Genres</h1>
