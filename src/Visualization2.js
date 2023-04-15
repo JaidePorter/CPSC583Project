@@ -6,7 +6,7 @@ import data from './data.json';
 function Visualization2() {
   
   const [popularity, setPopularity] = useState(100);
-  const [dataDisplayed, setData] = useState([]);
+  const [genreSelected, setGenre] = useState("all");
 
   data = data.sort((a, b) => {
     if(a.popularity < b.popularity) {
@@ -23,41 +23,80 @@ function Visualization2() {
   let speechinessData = [];
   let valenceData = [];
   let genreData = {};
-  let genreList = [];
   let currentLine = "all";
+  let genreCounts = {
+    "all": 50000,
+    "A Capella": 21,
+    "Alternative": 1958,
+    "Anime": 1926,
+    "Blues": 1935,
+    "Children's Music": 3189,
+    "Classical": 1972,
+    "Comedy": 2109,
+    "Country": 1823,
+    "Dance": 1843,
+    "Electronic": 2054,
+    "Folk": 2067,
+    "Hip-Hop": 2022,
+    "Indie": 2046,
+    "Jazz": 1985,
+    "Movie": 1643,
+    "Opera": 1744,
+    "Pop": 2015,
+    "R&B": 1952,
+    "Rap": 1995,
+    "Reggae": 1882,
+    "Reggaeton": 1879,
+    "Rock": 2000,
+    "Ska": 1861,
+    "Soul": 1982,
+    "Soundtrack": 2126, 
+    "World": 1971
+  }
+  let songCount = genreCounts[genreSelected];
+  var a = 0;
+  var b = 0;
 
-  for(var i = 0 ; i < (popularity * 50000 / 100); i++) {
-    let index = 50000 - i - 1;
-    popularityData.push(data[index]["popularity"]);
-    danceabilityData.push(data[index]["danceability"]);
-    acousticnessData.push(data[index]["acousticness"]);
-    energyData.push(data[index]["energy"]);
-    instrumentalnessData.push(data[index]["instrumentalness"]);
-    livenessData.push(data[index]["liveness"]);
-    speechinessData.push(data[index]["speechiness"]);
-    valenceData.push(data[index]["valence"]);
-    let genre = data[index]["genre"];
-    genreList.push(genre);
-    let newEntry = [
-      data[index]["danceability"],
-      data[index]["acousticness"],
-      data[index]["energy"],
-      data[index]["instrumentalness"],
-      data[index]["liveness"], 
-      data[index]["speechiness"], 
-      data[index]["valence"]];
-    if(!genreData.hasOwnProperty(genre)) {
-      genreData[genre] = {
-        "count": 1,
-        "data": newEntry
-      }
+  while(b < (popularity * songCount / 100)) {
+    let index = 50000 - a - 1;
+    if(genreSelected == "all") {
+      popularityData.push(data[index]["popularity"]);
+      danceabilityData.push(data[index]["danceability"]);
+      acousticnessData.push(data[index]["acousticness"]);
+      energyData.push(data[index]["energy"]);
+      instrumentalnessData.push(data[index]["instrumentalness"]);
+      livenessData.push(data[index]["liveness"]);
+      speechinessData.push(data[index]["speechiness"]);
+      valenceData.push(data[index]["valence"]);
+      b++;
     }
     else {
-      genreData[genre].count += 1;
-      for(var j = 0; j < 7; j++) {
-        genreData[genre].data[j] += newEntry[j];
+      let genre = data[index]["genre"];
+      if(genre == genreSelected) {
+        let newEntry = [
+          data[index]["danceability"],
+          data[index]["acousticness"],
+          data[index]["energy"],
+          data[index]["instrumentalness"],
+          data[index]["liveness"], 
+          data[index]["speechiness"], 
+          data[index]["valence"]];
+        if(!genreData.hasOwnProperty(genre)) {
+          genreData[genre] = {
+            "count": 1,
+            "data": newEntry
+          }
+        }
+        else {
+          genreData[genre].count += 1;
+          for(var j = 0; j < 7; j++) {
+            genreData[genre].data[j] += newEntry[j];
+          }
+        }
+        b++;
       }
     }
+    a++;
   }
 
   for(var i in genreData) {
@@ -71,7 +110,14 @@ function Visualization2() {
     return total / data.length;
   }
 
-  let allSongs = [getAvg(danceabilityData), getAvg(acousticnessData), getAvg(energyData), getAvg(instrumentalnessData), getAvg(livenessData), getAvg(speechinessData), getAvg(valenceData)];
+  let dataDisplayed = [];
+  if(genreSelected == "all") {
+    let allSongs = [getAvg(danceabilityData), getAvg(acousticnessData), getAvg(energyData), getAvg(instrumentalnessData), getAvg(livenessData), getAvg(speechinessData), getAvg(valenceData)];
+    dataDisplayed = allSongs;
+  }
+  else {
+    dataDisplayed = genreData[genreSelected].data;
+  }
 
   if(dataDisplayed.length == 0) {
     updateLine(currentLine);
@@ -132,12 +178,7 @@ function Visualization2() {
   };
 
   function updateLine(e) {
-    if(e == "all") {
-      setData(allSongs)
-    }
-    else {
-      setData(genreData[e].data)
-    }
+    setGenre(e);
     currentLine = e;
   }
 
