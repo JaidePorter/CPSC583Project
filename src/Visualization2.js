@@ -151,40 +151,64 @@ function Visualization2() {
   return (
     <div className="visualization-container">
       <h1>How do musical features positively or negatively impact a song's popularity?</h1>
-      <label>Select Genre: </label>
-      <select onChange={e => updateLine(e.target.value)}>
-        <option value="all">All Songs</option>
-        <option value="A Capella">Acapella</option>
-        <option value="Alternative">Alternative</option>
-        <option value="Anime">Anime</option>
-        <option value="Blues">Blues</option>
-        <option value="Children's Music">Children's Music</option>
-        <option value="Classical">Classical</option>
-        <option value="Comedy">Comedy</option>
-        <option value="Country">Country</option>
-        <option value="Dance">Dance</option>
-        <option value="Electronic">Electronic</option>
-        <option value="Folk">Folk</option>
-        <option value="Hip-Hop">Hip-Hop</option>
-        <option value="Indie">Indie</option>
-        <option value="Jazz">Jazz</option>
-        <option value="Movie">Movie</option>
-        <option value="Opera">Opera</option>
-        <option value="Pop">Pop</option>
-        <option value="R&B">R&B</option>
-        <option value="Rap">Rap</option>
-        <option value="Reggae">Reggae</option>
-        <option value="Reggaeton">Reggaeton</option>
-        <option value="Rock">Rock</option>
-        <option value="Ska">Ska</option>
-        <option value="Soul">Soul</option>
-        <option value="Soundtrack">Soundtrack</option>
-        <option value="World">World</option>
-      </select>
-      <ReactECharts height="600px" className="vis2canvas" option={option} />
-      <input type="range" id="visualization2slider" min="1" max="100" defaultValue="100" onChange={e => updateSlider(e)} />
-      <output id="tooltip">Top 100%</output>
-      <h3>Popularity</h3>
+      <div className="grid-container">
+        <div>
+          <label>Select Genre: </label>
+          <select onChange={e => updateLine(e.target.value)}>
+            <option value="all">All Songs</option>
+            <option value="A Capella">Acapella</option>
+            <option value="Alternative">Alternative</option>
+            <option value="Anime">Anime</option>
+            <option value="Blues">Blues</option>
+            <option value="Children's Music">Children's Music</option>
+            <option value="Classical">Classical</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Country">Country</option>
+            <option value="Dance">Dance</option>
+            <option value="Electronic">Electronic</option>
+            <option value="Folk">Folk</option>
+            <option value="Hip-Hop">Hip-Hop</option>
+            <option value="Indie">Indie</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Movie">Movie</option>
+            <option value="Opera">Opera</option>
+            <option value="Pop">Pop</option>
+            <option value="R&B">R&B</option>
+            <option value="Rap">Rap</option>
+            <option value="Reggae">Reggae</option>
+            <option value="Reggaeton">Reggaeton</option>
+            <option value="Rock">Rock</option>
+            <option value="Ska">Ska</option>
+            <option value="Soul">Soul</option>
+            <option value="Soundtrack">Soundtrack</option>
+            <option value="World">World</option>
+          </select>
+          <ReactECharts height="600px" className="vis2canvas" option={option} />
+          <input type="range" id="visualization2slider" min="1" max="100" defaultValue="100" onChange={e => updateSlider(e)} />
+          <output id="tooltip">Top 100%</output>
+          <h3>Popularity</h3>
+        </div>
+        <div className="text-container">
+          <p>
+            The radar plot presented here displays the positive and negative impacts of various musical attributes on the popularity of a song. 
+            The slider enables the user to adjust the number of songs included in the visualization. For example, selecting the top 30% would 
+            display the attributes of the 30% most popular songs in the dataset, while selecting the top 100% would show all songs.
+            <br/>
+            <br/>
+            The selection field can be used to filter the data by genre, allowing the user to view the attributes of songs in a specific genre. 
+            By default, the plot shows the attributes of all songs.
+            <br/>
+            <br/>
+            Comparing the default configuration (showing the top 100% of all songs) with the top 30%, we can observe that danceability 
+            and energy have a greater impact on a song's popularity, while acousticness and instrumentalness have a negative impact. 
+            However, these values may vary when the plot is filtered by genre.
+            <br/>
+            <br/>
+            Artists can use this visualization to identify the most influential musical attributes for their genre in terms of popularity. 
+            They can focus on incorporating the features that positively impact their songs' popularity while avoiding those that detract 
+            from it, as indicated by the dataset.</p>
+        </div>
+      </div>
     </div>
   );
 }
