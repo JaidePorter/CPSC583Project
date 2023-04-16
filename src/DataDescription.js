@@ -11,7 +11,7 @@ function DataDescription() {
       (available on kaggle.com/datasets/zaheenhamidani/ultimate-spotify-tracks-db).
       <br/>
       <br/>
-      Spotify uses a popularity ranking system that ranges from 0 to 100 to rank the 
+      Spotify uses a popularity ranking system that ranges from 0 to 1 to rank the 
       popularity of artists and their tracks. The higher a track's rank, the more discoverable 
       it is within the app. As a result, artists with more popular tracks are likely to 
       receive greater exposure and have a higher potential of reaching new fans.
