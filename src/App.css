@@ -93,3 +93,9 @@ input[type="range"]::-moz-range-thumb {
   background: #04AA6D; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+
+hr {
+  margin: 3em;
+  color: white;
+  border: 1px solid white;
+}
