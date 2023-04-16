@@ -139,7 +139,7 @@ function Visualization2() {
       axisName: {
         formatter: '【{value}】',
         color: 'white',
-        fontFamily: "Fredericka the Great"
+        fontFamily: 'Enriqueta'
       },
       splitArea: {
         areaStyle: {

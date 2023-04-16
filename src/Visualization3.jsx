@@ -101,7 +101,7 @@ function Visualization3() {
         formatter: "Song Popularity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nValue: "+resultingPopularity,
         fontSize: 30,
         color: "white",
-        fontFamily: "Fredericka the Great"
+        fontFamily: 'Enriqueta'
       },
       color: [...chosenColor],
     }]
